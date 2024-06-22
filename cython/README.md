@@ -21,8 +21,11 @@ python setup.py build_ext --inplace
 
 This will create a `build` directory with the compiled Cython code, and will also place the shared object `.so` files in the `pymc_bart` directory.
 
-You can now...
+You can now run the tests in the `tests` directory
 
+```bash
+python tests/test_tree.py
+```
 
 ## Project structure
 
@@ -41,7 +44,7 @@ You can now...
 │   ├── tree.py
 │   └── utils.py
 ├── setup.py                // Setup file for compiling Cython-BART
-└── tests                   // Unit and performance tests
+└── tests                   // Unit and performance of Cython code
     ├── test_bart.py
     └── test_tree.py
 ```
