@@ -10,8 +10,14 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
 sys.path.append(parent_dir)
 
-from pymc_bart.leaf_ops import fast_mean_cython
-from pymc_bart._tree import Node, Tree, new_tree, get_depth, get_idx_left_child, get_idx_right_child
+from pymc_bart._tree import (
+    Node, 
+    Tree, 
+    new_tree, 
+    get_depth, 
+    get_idx_left_child, 
+    get_idx_right_child
+)
 
 
 def test_new_tree():
@@ -68,6 +74,11 @@ def test_leaf_node():
     assert get_idx_right_child(index) == 12
     assert leaf_node.is_split_node() is False
     assert leaf_node.is_leaf_node() is True
+
+
+def test_new_node():
+    pass
+
 
 
 def main():

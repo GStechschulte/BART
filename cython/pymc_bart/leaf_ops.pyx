@@ -45,15 +45,15 @@ cpdef double fast_mean_cython(double[:] ari_view):
     double
         The mean of the array.
     """
-    # `Py_ssize_t` is the proper C type for Python array indices
     cdef Py_ssize_t count = ari_view.shape[0]
     cdef Py_ssize_t n = ari_view.shape[1]
     cdef Py_ssize_t i, j
     
     cdef double suma = 0.0
+    cdef double res_ = 0.0
 
     cdef double[:] res = np.zeros(count, dtype=np.float64)
-
+    
     if ari_view.ndim == 1:
         for i in range(count):
             suma += ari_view[i]
@@ -63,7 +63,6 @@ cpdef double fast_mean_cython(double[:] ari_view):
             for i in range(n):
                 # Access using stride information
                 res[j] += ari_view[j * n + i]
-        # Use memoryview's mean method
         return res.mean()
 
 
